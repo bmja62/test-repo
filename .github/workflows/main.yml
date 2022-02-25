@@ -19,9 +19,9 @@ on:
         default: 'eVxU6%wK9'
 
 env:
-  LABSTAR-URL: ""
-  LABSTAR-USERNAME: ""
-  LABSTAR-PASSWORD: ""
+  LABSTAR-URL: ${{ github.event.inputs.Url }}
+  LABSTAR-USERNAME: ${{ github.event.inputs.Username }}
+  LABSTAR-PASSWORD: ${{ github.event.inputs.Password }}
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -38,9 +38,14 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: echo Hello, world!
-
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
+        
+      - name: enviorment vars
+        run: |
+          echo "url: ${{ env.LABSTAR-URL }}" 
+          echo "username: ${{ env.LABSTAR-USERNAME }}"
+          echo "password: ${{ env.LABSTAR-PASSWORD }}"
+      
+      - name: show inputs
         run: |
           echo "url: ${{ github.event.inputs.Url }}" 
           echo "username: ${{ github.event.inputs.Username }}"
