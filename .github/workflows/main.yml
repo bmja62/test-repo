@@ -2,29 +2,32 @@
 
 name: CI
 
-# Controls when the workflow will run
+env:
+  labstar-url: 'https://preview-ng.labstar.com/'
+  labstar-username: user1
+  labstar-password: pass
+
 on:
-  # Triggers the workflow on push or pull request events but only for the master branch
   push:
     branches: [ master ]
+
   pull_request:
     branches: [ master ]
-
-  # Allows you to run this workflow manually from the Actions tab
+  
   workflow_dispatch:
      inputs:
       Url:
         description: 'Url'     
         required: true
-        default: 'https://preview-ng.labstar.com/'
+        default: $labstar-url
       Username:
         description: 'Username'     
         required: true
-        default: 'Support'
+        default: $labstar-username
       Password:
         description: 'Password'     
         required: true
-        default: 'eVxU6,wk9\^L-yh%'
+        default: $labstar-password
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
