@@ -19,7 +19,7 @@ on:
       Url:
         description: 'Url'     
         required: true
-        default: $labstar-url
+        default: ${{ env.labstar-url }} 
       Username:
         description: 'Username'     
         required: true
