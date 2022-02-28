@@ -50,3 +50,17 @@ jobs:
           echo "url: ${{ github.event.inputs.Url }}" 
           echo "username: ${{ github.event.inputs.Username }}"
           echo "password: ${{ github.event.inputs.Password }}"
+          
+          
+      - uses: actions/checkout@v2
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt'
+          java-version: '8'
+      - name: Thundra Maven Test Instrumentation
+        uses: thundra-io/thundra-maven-test-action@v1
+        with:
+          apikey: f63aa2c7-7ea0-4b28-9472-ffd6d1e7d33b
+          project_id: c4a40144-6b41-4edc-b64e-475a59accb7a
+          command: mvn clean install
