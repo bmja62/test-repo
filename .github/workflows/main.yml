@@ -22,7 +22,7 @@ on:
         required: true
         default: 'eVxU6%wK9'
 env:
- TestOptions.Headless: false
+ TestOptions__Headless: false
  
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -40,9 +40,9 @@ jobs:
           echo "url: ${{ github.event.inputs.Url }}" 
           echo "Replace env variable from input"
         env:
-          SiteOptions.Url : ${{ github.event.inputs.Url }}
-          SiteOptions.Username : ${{ github.event.inputs.Username }}
-          SiteOptions.Password : ${{ github.event.inputs.Password }}
+          SiteOptions__Url : ${{ github.event.inputs.Url }}
+          SiteOptions__Username : ${{ github.event.inputs.Username }}
+          SiteOptions__Password : ${{ github.event.inputs.Password }}
     
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
@@ -53,9 +53,9 @@ jobs:
         
       - name: enviorment vars
         run: |
-          echo "url: ${{ env.SiteOptions.Url }}" 
-          echo "username: ${{ env.SiteOptions.Username }}"
-          echo "password: ${{ env.SiteOptions.Password }}"
+          echo "url: ${{ env.SiteOptions__Url }}" 
+          echo "username: ${{ env.SiteOptions__Username }}"
+          echo "password: ${{ env.SiteOptions__Password }}"
       
       - name: show inputs
         run: |
