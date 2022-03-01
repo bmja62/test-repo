@@ -51,9 +51,9 @@ jobs:
         
       - name: enviorment vars
         run: |
-          echo "url: ${{ env.LABSTAR-URL }}" 
-          echo "username: ${{ env.LABSTAR-USERNAME }}"
-          echo "password: ${{ env.LABSTAR-PASSWORD }}"
+          echo "url: ${{ env.SiteOptions.Url }}" 
+          echo "username: ${{ env.SiteOptions.Username }}"
+          echo "password: ${{ env.SiteOptions.Password }}"
       
       - name: show inputs
         run: |
