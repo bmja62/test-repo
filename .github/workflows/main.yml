@@ -35,7 +35,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: Replace env variable from input
-        if: ${{ github.event.inputs.Url == "" }}
+        if: ${{ github.event.inputs.Url == '' }}
         run: echo "Replace env variable from input"
         env:
           SiteOptions.Url : ${{ github.event.inputs.Url }}
